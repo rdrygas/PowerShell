@@ -21,7 +21,11 @@ foreach ($file in $files) {
             Copy-Item -Path $file.FullName -Destination $destinationPath
             $counter++
             $progress = [math]::Round(($counter / $totalFiles) * 100, 2)
-            Write-Progress -Activity "Copying PDF files" -Status "Copied: $($file.Name) $counter z $totalFiles $progress%" -PercentComplete $progress
+            Write-Progress -Activity "Copying PDF files" -Status "Copied: $($file.Name) $counter of $totalFiles $progress%" -PercentComplete $progress
+        } else {
+            $counter++
+            $progress = [math]::Round(($counter / $totalFiles) * 100, 2)
+            Write-Progress -Activity "Copying PDF files" -Status "File exists: $($file.Name) $counter of $totalFiles $progress%" -PercentComplete $progress
         }
     } catch {
         Write-Host "Error while copying file: $($file.FullName) | Error: $_"
