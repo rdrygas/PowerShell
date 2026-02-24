@@ -32,4 +32,4 @@ foreach ($file in $files) {
     }
 }
 
-Write-Progress -Activity "Copying PDF files" -Status "Copying completed. Copied $counter z $totalFiles files." -Complete
+Write-Progress -Activity "Copying PDF files" -Status "Copying completed. Copied $counter of $totalFiles files." -Complete
